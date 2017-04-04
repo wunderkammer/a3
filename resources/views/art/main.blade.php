@@ -12,10 +12,21 @@
 <div class="container-fluid">
 <div class="row">
 <div class="col-md-6 col-lg-6" style="text-align:center;">
-        <div class='alert alert-info'>Searched for: {{ $period."th century ".$continent }} </div>
+    <div class='alert alert-info'>Searched for: {{ $period."th century ".$continent }} </div>
+    @if($errors->get('continent'))
+    <ul>
+        @foreach($errors->get('continent') as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+    @endif
+    
+    
+    
+    
 	<ul class="gallery">
 		@foreach($image_data as $image_key=>$image_value) 
-                <?='<li>'?>
+        <?='<li>'?>
 		<?='<img src="/images/'.$image_value['file_name'].'" style="width:100px;">'?>
 		<?='<span style="margin:300px 0px 0px 0px;">'?>
 		<?='<img src="/images/'.$image_value['file_name'].'" style="width:300px;">'?>
