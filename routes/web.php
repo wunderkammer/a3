@@ -17,3 +17,6 @@ Route::get('/test', function () {
 
 Route::get('/', 'GalleryController@index');
 Route::post('/', 'GalleryController@index');
+if(config('app.env')=='local'){
+      Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+}
