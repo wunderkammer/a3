@@ -29,7 +29,7 @@
 <h4>Select from the options below to see highlights from the Met!</h4>
 
 <hr style="width:200px">
-<form method='POST' action="/test">
+<form method='POST' action="/">
   {{ csrf_field() }}
   <label for="checkbox">Object type</label>
 
