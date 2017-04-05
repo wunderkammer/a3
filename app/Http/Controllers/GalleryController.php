@@ -16,52 +16,30 @@ class GalleryController extends Controller
 
     $image_data = [];
 	
-    $continent = $request->input('continent');
-    $period = $request->input('period');
-    $objects = $request->input('objects');
+    $continent = "";
+    $period = "";
+    $objects = "";
+
 
     if($form->isSubmitted()){
-        $this->validate($request,[
-        	'continent' => 'required'
-        	,'period' => 'required'
-        	,'objects' => 'required'
+       
+      $this->validate($request, [
+            'continent' => 'required',
+            'century' => 'required',
+            'checkbox' => 'required',
         ]);
+ 
+      
+      $continent = $request->input('continent');
+      $period = $request->input('century');
+      $objects = $request->input('checkbox');
 
-        
-    $continent = $request->input('continent');
-    $period = $request->input('period');
-    $objects = $request->input('objects');
-
-
-
-
-    //	$continent = $form->get('continent');
-    //	$period = $form->get('century');
-    //    $objects = $form->get('checkbox');	
+         
+   
 	
-        $fields = ['continent','century','checkbox'];
-	foreach($fields as $field) {
-  		if (empty($_POST[$field])) {
-    			$errors = true;
-  	        }
-	}
-        if($errors){
-		$image_data = [];
-	}else{
-		$image_data = $gallery->getArt($continent,$period,$objects);
-        }
-	$haveResults = (count($image_data) == 0) ? false : true;
+	$image_data = $gallery->getArt($continent,$period,$objects);
        }
 	return view('art.main')->with(['continent'=>$continent,'period'=>$period,'objects'=>$objects,'image_data'=>$image_data]); 
      }
-
-
-
-
-
-
-
-
-
 
    }
