@@ -12,21 +12,16 @@
 <div class="container-fluid">
 <div class="row">
 <div class="col-md-6 col-lg-6" style="text-align:center;">
-    <div class='alert alert-info'>Searched for: {{ $period."th century ".$continent }} </div>
-    @if($errors->get('continent'))
-    <ul>
-        @foreach($errors->get('continent') as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-    @endif
-    
-    
-    
+    <div class='alert alert-info'>Searched for: {{ $continent }} </div>
+     @if(count($errors) > 0)
+            @foreach($errors->all() as $error)
+                {{ $error }}.<br>
+            @endforeach
+     @endif    
     
 	<ul class="gallery">
 		@foreach($image_data as $image_key=>$image_value) 
-        <?='<li>'?>
+                <?='<li>'?>
 		<?='<img src="/images/'.$image_value['file_name'].'" style="width:100px;">'?>
 		<?='<span style="margin:300px 0px 0px 0px;">'?>
 		<?='<img src="/images/'.$image_value['file_name'].'" style="width:300px;">'?>
@@ -45,18 +40,18 @@
   <label for="checkbox">Object type</label>
 
   <br>
-  <input type="checkbox" name="checkbox[]" value="textile"> textiles<br><br>
-  <input type="checkbox" name="checkbox[]" value="decorative"> decorative<br><br>
-  <input type="checkbox" name="checkbox[]" value="painting"> paintings<br><br>
-  <input type="checkbox" name="checkbox[]" value="sculpture"> sculptures<br>
+  <input type="checkbox" name="object[]" value="textile"> textiles<br><br>
+  <input type="checkbox" name="object[]" value="decorative"> decorative<br><br>
+  <input type="checkbox" name="object[]" value="painting"> paintings<br><br>
+  <input type="checkbox" name="object[]" value="sculpture"> sculptures<br>
   <hr style="width:200px">
 
 
   <label for="century">Date of creation</label>
   <br>
-  <input type="radio" name="century" value="17"> 1600-1800 AD<br><br>
-  <input type="radio" name="century" value="18"> 1800-1900 AD<br><br>
-  <input type="radio" name="century" value="20"> 1900-present<br><br>
+  <input type="radio" name="date" value="17"> 1600-1800 AD<br><br>
+  <input type="radio" name="date" value="18"> 1800-1900 AD<br><br>
+  <input type="radio" name="date" value="20"> 1900-present<br><br>
 
   <hr style="width:200px">
 

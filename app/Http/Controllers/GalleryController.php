@@ -25,14 +25,14 @@ class GalleryController extends Controller
        
       $this->validate($request, [
             'continent' => 'required',
-            'century' => 'required',
-            'checkbox' => 'required',
+            'date' => 'required',
+            'object' => 'required',
         ]);
  
       
       $continent = $request->input('continent');
-      $period = $request->input('century');
-      $objects = $request->input('checkbox');
+      $period = $request->input('date');
+      $objects = $request->input('object');
 
          
    
