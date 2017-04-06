@@ -37,28 +37,28 @@
 <hr style="width:200px">
 <form method='POST' action="/">
   {{ csrf_field() }}
-  <label for="checkbox">Object type</label>
+  <h4>Object type</h4>
 
   <br>
-  <input type="checkbox" name="object[]" value="textile"> textiles<br><br>
-  <input type="checkbox" name="object[]" value="decorative"> decorative<br><br>
-  <input type="checkbox" name="object[]" value="painting"> paintings<br><br>
-  <input type="checkbox" name="object[]" value="sculpture"> sculptures<br>
+  <input type="checkbox" name="object[]" value="textile" id="textile"><label for="textile" style="margin:5px"> textiles</label>
+  <input type="checkbox" name="object[]" value="decorative"><label for="decorative" style="margin:5px"> decorative</label>
+  <input type="checkbox" name="object[]" value="painting"><label for="painting" style="margin:5px"> paintings</label>
+  <input type="checkbox" name="object[]" value="sculpture"><label for="painting" style="margin:5px"> sculptures</label>
   <hr style="width:200px">
 
 
-  <label for="century">Date of creation</label>
+  <h4>Date of creation</h4>
   <br>
-  <input type="radio" name="date" value="17"> 1600-1800 AD<br><br>
-  <input type="radio" name="date" value="18"> 1800-1900 AD<br><br>
-  <input type="radio" name="date" value="20"> 1900-present<br><br>
+  <input type="radio" name="date" value="17" id="17"><label for="17" style="margin:5px">1600-1800 AD</label>
+  <input type="radio" name="date" value="18" id="18"><label for="18" style="margin:5px">1800-1900 AD</label>
+  <input type="radio" name="date" value="20" id="20"><label for="20" style="margin:5px">1900-present</label>
 
   <hr style="width:200px">
 
-  <label for="continent">Continent</label>
+  <label for="continent"><h4>Continent</h4></label>
   <br>
 
-  <select name="continent">
+  <select name="continent" id="continent">
   <option value="Africa">Africa</option>
   <option value="Asia">Asia</option>
   <option value="Europe">Europe</option>
