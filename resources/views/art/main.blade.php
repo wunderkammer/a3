@@ -41,9 +41,9 @@
 
   <br>
   <input type="checkbox" name="object[]" value="textile" id="textile"><label for="textile" style="margin:5px"> textiles</label>
-  <input type="checkbox" name="object[]" value="decorative"><label for="decorative" style="margin:5px"> decorative</label>
-  <input type="checkbox" name="object[]" value="painting"><label for="painting" style="margin:5px"> paintings</label>
-  <input type="checkbox" name="object[]" value="sculpture"><label for="painting" style="margin:5px"> sculptures</label>
+  <input type="checkbox" name="object[]" value="decorative" id="decorative"><label for="decorative" style="margin:5px"> decorative</label>
+  <input type="checkbox" name="object[]" value="painting" id="painting"><label for="painting" style="margin:5px"> paintings</label>
+  <input type="checkbox" name="object[]" value="sculpture" id="sculpture"><label for="sculpture" style="margin:5px"> sculptures</label>
   <hr style="width:200px">
 
 
@@ -55,7 +55,7 @@
 
   <hr style="width:200px">
 
-  <label for="continent"><h4>Continent</h4></label>
+  <h4>Continent</h4>
   <br>
 
   <select name="continent" id="continent">
