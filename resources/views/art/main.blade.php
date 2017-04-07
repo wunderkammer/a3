@@ -12,22 +12,26 @@
 <div class="container-fluid">
 <div class="row">
 <div class="col-md-6 col-lg-6" style="text-align:center;">
-    <div class='alert alert-info'>Searched for: {{ $continent }} </div>
+   
+    
      @if(count($errors) > 0)
             @foreach($errors->all() as $error)
-                {{ $error }}.<br>
+             <div class='alert alert-danger'>{{ $error }}</div>
             @endforeach
+     @else       
+            <div class='alert alert-info'>{{ $results }}</div>
+            
      @endif    
     
 	<ul class="gallery">
 		@foreach($image_data as $image_key=>$image_value) 
-                <?='<li>'?>
-		<?='<img src="/images/'.$image_value['file_name'].'" style="width:100px;">'?>
-		<?='<span style="margin:300px 0px 0px 0px;">'?>
-		<?='<img src="/images/'.$image_value['file_name'].'" style="width:300px;">'?>
-                <?= $image_value['description'] ?>
-		<?='</span>'?>
-		<?='</li>'?>
+                <li>
+		<img src="/images/{{$image_value['file_name'] }}" style="width:100px;">
+		<span style="margin:300px 0px 0px 0px;">
+		<img src="/images/{{ $image_value['file_name'] }}" style="width:300px;">
+              {{ $image_value['description'] }}
+		</span>
+		</li>
 	  	@endforeach
 	</ul>
 </div>
@@ -58,7 +62,8 @@
   <h4>Continent</h4>
   <br>
 
-  <select name="continent" id="continent">
+  <select name="continent" id="continent" >
+  <option disabled selected value> -- select an option -- </option>
   <option value="Africa">Africa</option>
   <option value="Asia">Asia</option>
   <option value="Europe">Europe</option>

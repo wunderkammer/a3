@@ -38,8 +38,19 @@ class GalleryController extends Controller
    
 	
 	$image_data = $gallery->getArt($continent,$period,$objects);
-       }
-	return view('art.main')->with(['continent'=>$continent,'period'=>$period,'objects'=>$objects,'image_data'=>$image_data]); 
      }
+
+	if(count($image_data) > 0){
+	    if(count($image_data) == 1){
+	    	$hasResults = "Your search returned ".count($image_data)." result";
+	    } else {
+		$hasResults = "Your search returned ".count($image_data)." results";
+	    }
+	} else {
+	    $hasResults = "Your search returned 0 results. Please search again.";	
+
+	}
+	return view('art.main')->with(['continent'=>$continent,'period'=>$period,'objects'=>$objects,'image_data'=>$image_data,'results'=>$hasResults]); 
+    }
 
    }
