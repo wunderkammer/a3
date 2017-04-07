@@ -40,16 +40,25 @@ class GalleryController extends Controller
 	$image_data = $gallery->getArt($continent,$period,$objects);
      }
 
-	if(count($image_data) > 0){
-	    if(count($image_data) == 1){
-	    	$hasResults = "Your search returned ".count($image_data)." result";
-	    } else {
-		$hasResults = "Your search returned ".count($image_data)." results";
-	    }
-	} else {
-	    $hasResults = "Your search returned 0 results. Please search again.";	
-
+ 
+	if (!isset($_COOKIE['firsttime']))
+	{
+    		setcookie("firsttime", "no");
+		$hasResults = "";
 	}
+	else
+	{
+		$image_count = count($image_data);
+		if($image_count == 1){
+			$hasResults = "Your search returned ".$image_count." result.";
+		}else{
+			$hasResults = "Your search returned ".$image_count." results.";
+		}
+	}
+
+
+	
+
 	return view('art.main')->with(['continent'=>$continent,'period'=>$period,'objects'=>$objects,'image_data'=>$image_data,'results'=>$hasResults]); 
     }
 

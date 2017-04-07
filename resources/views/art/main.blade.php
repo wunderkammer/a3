@@ -19,7 +19,7 @@
              <div class='alert alert-danger'>{{ $error }}</div>
             @endforeach
      @else       
-            <div class='alert alert-info'>{{ $results }}</div>
+            {{$results}}
             
      @endif    
     
